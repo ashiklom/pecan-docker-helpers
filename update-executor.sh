@@ -8,7 +8,6 @@ if [ -z "${PACKAGE}" ]; then
     exit 1
 fi
 CONTAINER=$(docker container ls --filter name=executor --format '{{.ID}}')
-SERVICE=$(docker service ls --format '{{.ID}}\t{{.Name}}' | awk '/executor/ {print $1}')
 
 # Copy package into running container
 echo "Copying ${PACKAGE} to container ${CONTAINER}"
